@@ -1,29 +1,23 @@
-def to_do_list():
-    tasks=[]
-
-    while True:
-        print("1.Add task")
-        print("2.Remote task")
-        print("3.Show task")
-        print("4.Exit")
-        choice = input("Enter your choice:")
-
-        if choice == "1":
-            task = input("Enter task:")
-            tasks.append(task)
-        elif choice == "2":
-            task = input("Enter task to remote:")
-            if task in tasks:
-                tasks.remote(task)
-            else:
-                print("Task not found")
-        elif choice == "3":
-            print("Tasks: ")
-            for task in tasks:
-                print("-" + task)
-        elif choice == "4":
-            break
+tasks = []
+while True:
+    print("Todo List App\n1. Add task \n2. Show tasks \n3. Remove tasks \n4. Exit")
+    ch = input("Enter your choice:")
+    if ch == '1':
+        t = input("Enter the task:")
+        tasks.append(t)
+        print(f'{t} added successfully.')
+    elif ch == '2':
+        for i in tasks:
+            print(i)
+    elif ch == '3':
+        tas = input("Enter task to be removed (Case sensitive! Enter task as it is added):")
+        if tas in tasks:
+            tasks.remove(tas)
+            print(f"{tas} removed.")
         else:
-            print("invalid choice")
-
-to_do_list()
+            print("Task not found")
+    elif ch == '4':
+        print("Exiting Todo list")
+        break
+    else: 
+        print("Invalid choice")
